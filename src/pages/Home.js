@@ -1,13 +1,16 @@
 import Nav from '../components/Nav'
 import Search from '../components/Search'
 import Users from '../components/Users'
+import Wrapper from '../components/Wrapper'
 
 export default function Home () {
   return (
     <>
       <Nav />
-      <Search />
-      <Users />
+      <Wrapper>
+        <Search />
+        <Users />
+      </Wrapper>
     </>
   )
 }

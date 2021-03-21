@@ -23,6 +23,14 @@ const GlobalStyles = createGlobalStyle`
         font-family: 'Montserrat', sans-serif;
         width: 100%;
     }
+
+    svg {
+        margin-right: 10px;
+    }
+
+    a {
+        text-decoration: none;
+    }
 `
 
 export default GlobalStyles
