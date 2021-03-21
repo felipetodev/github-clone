@@ -1,15 +1,13 @@
-import { useEffect } from 'react'
-import { useDispatch } from 'react-redux'
-import { loadSearchUser } from '../actions/SearchUserAction'
+import Nav from '../components/Nav'
+import Search from '../components/Search'
+import Users from '../components/Users'
 
 export default function Home () {
-  const dispatch = useDispatch()
-
-  useEffect(() => {
-    dispatch(loadSearchUser())
-  }, [])
-
   return (
-    <h1>Home</h1>
+    <>
+      <Nav />
+      <Search />
+      <Users />
+    </>
   )
 }
