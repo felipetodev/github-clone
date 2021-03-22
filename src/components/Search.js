@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import styled from 'styled-components'
-import { loadSearchUser } from '../actions/SearchUserAction'
+import { loadSearchUser } from 'actions/SearchUserAction'
 import { useHistory } from 'react-router-dom'
 
 export default function Search () {
@@ -20,8 +20,6 @@ export default function Search () {
       dispatch(loadSearchUser(textInput))
       const textInputEncoded = encodeURI(textInput)
       history.push(`/feed/${textInputEncoded}`)
-    } else {
-      console.warn('Campo Requerido ⚠️')
     }
   }
 

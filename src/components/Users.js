@@ -2,7 +2,7 @@ import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import { GoPerson } from 'react-icons/go'
-import Spinner from '../components/Spinner'
+import Spinner from 'components/Spinner'
 
 export default function Users () {
   const { user, loading, error } = useSelector((state) => state.user)

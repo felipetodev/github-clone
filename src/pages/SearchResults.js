@@ -1,15 +1,15 @@
 import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { loadUserProfile, loadUserRepos } from '../actions/SearchUserAction'
+import { loadUserProfile, loadUserRepos } from 'actions/SearchUserAction'
 import { GoRepo, GoStar, GoLaw, GoPrimitiveDot, GoLocation, GoOrganization, GoMail, GoLink } from 'react-icons/go'
 import { AiOutlineTwitter } from 'react-icons/ai'
 import styled from 'styled-components'
-import Nav from '../components/Nav'
-import Wrapper from '../components/Wrapper'
-import TimeAgo from '../components/TimeAgo'
-import Footer from '../components/Footer'
-import getLanguageColor from '../hooks/getLanguage'
+import Nav from 'components/Nav'
+import Wrapper from 'components/Wrapper'
+import Footer from 'components/Footer'
+import TimeAgo from 'hooks/TimeAgo'
+import getLanguageColor from 'hooks/getLanguage'
 
 export default function SearchResults () {
   const dispatch = useDispatch()

@@ -1,4 +1,3 @@
-
 const getLanguageColor = (language) => {
   switch (language) {
     case 'JavaScript':
@@ -15,6 +14,18 @@ const getLanguageColor = (language) => {
       return '#3572a5'
     case 'Java':
       return '#b07219'
+    case 'Vue':
+      return '#2c3e50'
+    case 'PHP':
+      return '#4F5D95'
+    case 'C':
+      return '#555555'
+    case 'C++':
+      return '#f34b7d'
+    case 'C#':
+      return '#178600'
+    case 'Go':
+      return '#00ADD8'
     default:
       return '#ccc'
   }

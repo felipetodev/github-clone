@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
-import Nav from '../components/Nav'
-import Footer from '../components/Footer'
+import Nav from 'components/Nav'
+import Footer from 'components/Footer'
 
 export default function Error () {
   return (
