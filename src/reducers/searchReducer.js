@@ -1,6 +1,7 @@
 const initialState = {
   user: [],
-  userRepos: []
+  userRepos: [],
+  userProfile: []
 }
 
 const searchReducer = (state = initialState, action) => {
@@ -14,6 +15,11 @@ const searchReducer = (state = initialState, action) => {
       return {
         ...state,
         userRepos: action.payload.userRepos
+      }
+    case 'FETCH_USER_PROFILE':
+      return {
+        ...state,
+        userProfile: action.payload.userProfile
       }
     default:
       return {

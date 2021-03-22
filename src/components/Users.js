@@ -35,6 +35,8 @@ const Cards = styled.div`
   margin-left: auto;
   margin-right: auto;
   width: 100%;
+  
+  justify-items: center;
 `
 const Card = styled.div`
   display: flex;

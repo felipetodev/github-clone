@@ -17,11 +17,17 @@ const GlobalStyles = createGlobalStyle`
         &::-webkit-scrollbar-track {
             background: white;
         }
+
+        height: 100%;
     }
 
     body {
         font-family: 'Montserrat', sans-serif;
         width: 100%;
+
+        min-height: 100%;
+        display: flex;
+        flex-direction: column;
     }
 
     svg {

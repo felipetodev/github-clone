@@ -18,6 +18,11 @@ const StyledNav = styled.div`
   color: #fff;
   padding: 1rem 0;
 
+  &:hover > * {
+    transition: all 300ms ease;
+    color: #ccc;
+  }
+
   a {
     display: flex;
     align-items: center;

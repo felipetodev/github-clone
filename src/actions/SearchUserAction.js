@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { getUser, getUserRepos } from '../services/api'
+import { getUser, getUserRepos, getUserProfile } from '../services/api'
 
 export const loadSearchUser = (userName) => async (dispatch) => {
   const { data } = await axios.get(getUser(userName))
@@ -19,6 +19,17 @@ export const loadUserRepos = (userName) => async (dispatch) => {
     type: 'FETCH_USER_REPOS',
     payload: {
       userRepos: data
+    }
+  })
+}
+
+export const loadUserProfile = (userName) => async (dispatch) => {
+  const { data } = await axios.get(getUserProfile(userName))
+
+  dispatch({
+    type: 'FETCH_USER_PROFILE',
+    payload: {
+      userProfile: data
     }
   })
 }
