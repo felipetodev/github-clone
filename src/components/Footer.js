@@ -14,7 +14,7 @@ const StyledFooter = styled.div`
   justify-content: center;
   border-top: 1px solid #ccc;
   padding: 1rem;
-  margin-top: auto;
+  margin-top: 2.5rem;
 
   svg {
     color: #ccc;

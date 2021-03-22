@@ -21,7 +21,7 @@ export default function Users () {
             </Link>
           </Card>
         ))
-        : 'Find a user'}
+        : ''}
     </Cards>
   )
 }

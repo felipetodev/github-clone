@@ -9,7 +9,7 @@ export default function App () {
     <div>
       <GlobalStyles />
       <Switch>
-        <Route path='/' component={Home} exact />
+        <Route path={['/feed/:id', '/']} component={Home} exact />
         <Route path='/search/:id' component={SearchResults} />
         <Route path='*' component={Error} />
       </Switch>

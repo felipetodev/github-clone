@@ -69,7 +69,9 @@ export default function SearchResults () {
               <div className='user__details'>
                 <span>
                   <GoLocation />
-                  {user.userProfile.location}
+                  {user.userProfile.location
+                    ? user.userProfile.location
+                    : 'Nowhere'}
                 </span>
                 <span>
                   <GoMail />
@@ -149,6 +151,13 @@ const Container = styled.div`
   border-radius: 10px;
   margin-bottom: 1rem;
 
+  @media (max-width: 800px) {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 90%;
+  }
+
   img {
     width: 250px;
     border-radius: 50%;
@@ -174,6 +183,10 @@ const Avatar = styled.div`
   justify-content: center;
   align-items: flex-start;
   margin-left: 1rem;
+
+  @media (max-width: 800px) {
+    margin: 0;
+  }
 
   h1 {
     margin-top: 10px;
@@ -207,6 +220,14 @@ const UserDetails = styled.div`
     & > * {
       margin-right: 1.5rem;
     }
+
+    @media (max-width: 500px) {
+      flex-direction: column;
+
+      & > span {
+        margin-bottom: 5px;
+      }
+    }
   }
 
   .user__details {
@@ -228,6 +249,10 @@ const RepoContainer = styled.div`
   padding: 1rem;
   border-radius: 10px;
   margin: 1rem 0;
+
+  &:hover {
+    box-shadow: 0 0 10px rgba(0,0,0,.1);
+  }
 
   a {
     color: #1b75da;

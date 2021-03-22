@@ -2,11 +2,13 @@ import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import styled from 'styled-components'
 import { loadSearchUser } from '../actions/SearchUserAction'
+import { useHistory } from 'react-router-dom'
 
 export default function Search () {
   const [textInput, setTextInput] = useState('')
 
   const dispatch = useDispatch()
+  const history = useHistory()
 
   const onChangeHandler = (e) => {
     setTextInput(e.target.value)
@@ -14,36 +16,46 @@ export default function Search () {
 
   const onSubmitForm = (e) => {
     e.preventDefault()
-    textInput !== ''
-      ? dispatch(loadSearchUser(textInput))
-      : console.warn('Campo Requerido ⚠️')
+    if (textInput !== '') {
+      dispatch(loadSearchUser(textInput))
+      const textInputEncoded = encodeURI(textInput)
+      history.push(`/feed/${textInputEncoded}`)
+    } else {
+      console.warn('Campo Requerido ⚠️')
+    }
   }
 
   return (
     <StyledForm onSubmit={onSubmitForm}>
-      <input value={textInput} onChange={onChangeHandler} type='text' />
+      <input value={textInput} onChange={onChangeHandler} type='text' placeholder='Search or jump to...' />
       <button>Search</button>
     </StyledForm>
   )
 }
 
 const StyledForm = styled.form`
-  border: 1px solid red;
   display: flex;
   justify-content: center;
   padding: 1rem 0;
 
   input {
-    height: 35px;
+    width: 80%;
+    height: 45px;
     font-size: inherit;
     padding: 0 0.5rem;
+
+    &:focus {
+      border-color: #32b256;
+      outline: none;
+      box-shadow: 0 0 10px rgba(20,20,20,.1);
+    }
   }
 
   button {
     padding: 10px;
     font-weight: bold;
     color: white;
-    background-color: crimson;
+    background-color: #32b256;
     border: none;
     outline: none;
     cursor: pointer;

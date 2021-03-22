@@ -7,7 +7,7 @@ export default function Nav () {
     <StyledNav>
       <Link to='/'>
         <GoMarkGithub />
-        <h1>Github</h1>
+        <h1>GitHub</h1>
       </Link>
     </StyledNav>
   )
@@ -34,5 +34,14 @@ const StyledNav = styled.div`
   svg {
     font-size: 2rem;
     margin-right: 1rem;
+  }
+
+  @media (max-width: 800px) {
+    display: flex;
+    justify-content: center;
+
+    a {
+      margin: 0;
+    }
   }
 `
