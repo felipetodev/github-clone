@@ -7,6 +7,7 @@ import Nav from 'components/Nav'
 import Search from 'components/Search'
 import Users from 'components/Users'
 import Wrapper from 'components/Wrapper'
+import Hero from 'components/Hero'
 
 export default function Home () {
   const dispatch = useDispatch()
@@ -22,13 +23,7 @@ export default function Home () {
     <>
       <Nav />
       <Wrapper>
-        {pathname === '/'
-          ? (
-            <h1 style={{ display: 'flex', justifyContent: 'center', padding: '5rem' }}>
-              Welcome to Github Clone
-              Search for a user profile to explore
-            </h1>)
-          : ''}
+        {pathname === '/' && <Hero />}
         <Search />
         <Users />
         <Footer />

@@ -1,19 +1,28 @@
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { GoMarkGithub } from 'react-icons/go'
+
 import styled from 'styled-components'
+import Search from './Search'
 
 export default function Nav () {
+  const { pathname } = useLocation()
+  const pathKey = pathname.split('/')[1]
+
   return (
     <StyledNav>
       <Link to='/'>
         <GoMarkGithub />
         <h1>GitHub</h1>
       </Link>
+      {pathKey === 'search'
+        ? <Search />
+        : ''}
     </StyledNav>
   )
 }
 
 const StyledNav = styled.div`
+  display: flex;
   background-color: #24292e;
   color: #fff;
   padding: 1rem 0;
@@ -28,7 +37,7 @@ const StyledNav = styled.div`
     align-items: center;
     text-decoration: none;
     color: white;
-    margin-left: 2rem;
+    margin: 0rem 2rem;
   }
 
   svg {
@@ -38,7 +47,9 @@ const StyledNav = styled.div`
 
   @media (max-width: 800px) {
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
 
     a {
       margin: 0;

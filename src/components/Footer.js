@@ -12,7 +12,7 @@ export default function Footer () {
   )
 }
 
-const StyledFooter = styled.div`
+const StyledFooter = styled.footer`
   display: flex;
   justify-content: center;
   border-top: 1px solid #ccc;

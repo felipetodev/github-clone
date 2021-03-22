@@ -22,6 +22,7 @@ export default function SearchResults () {
     if (pathId !== '') {
       dispatch(loadUserProfile(pathId))
       dispatch(loadUserRepos(pathId))
+      window.scrollTo(0, 0)
     }
   }, [dispatch, pathId])
 
