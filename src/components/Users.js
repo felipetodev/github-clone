@@ -2,27 +2,34 @@ import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import { GoPerson } from 'react-icons/go'
+import Spinner from '../components/Spinner'
 
 export default function Users () {
-  const { user } = useSelector((state) => state.user)
+  const { user, loading, error } = useSelector((state) => state.user)
 
   return (
-    <Cards>
-      {user.items
-        ? user.items.map(user => (
-          <Card key={user.id}>
-            <img src={user.avatar_url} alt={user.login} />
-            <span>{user.login}</span>
-            <Link to={`/search/${user.login}`}>
-              <button>
-                <GoPerson />
-                View profile
-              </button>
-            </Link>
-          </Card>
-        ))
-        : ''}
-    </Cards>
+    <>
+      {loading
+        ? <Spinner />
+        : (
+          <Cards>
+            {user.items
+              ? user.items.map(user => (
+                <Card key={user.id}>
+                  <img src={user.avatar_url} alt={user.login} />
+                  <span>{user.login}</span>
+                  <Link to={`/search/${user.login}`}>
+                    <button>
+                      <GoPerson />
+                      View profile
+                    </button>
+                  </Link>
+                </Card>
+              ))
+              : <p>{error}</p>}
+          </Cards>
+          )}
+    </>
   )
 }
 

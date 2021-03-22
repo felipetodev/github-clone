@@ -9,6 +9,7 @@ import Nav from '../components/Nav'
 import Wrapper from '../components/Wrapper'
 import TimeAgo from '../components/TimeAgo'
 import Footer from '../components/Footer'
+import getLanguageColor from '../hooks/getLanguage'
 
 export default function SearchResults () {
   const dispatch = useDispatch()
@@ -23,27 +24,6 @@ export default function SearchResults () {
       dispatch(loadUserRepos(pathId))
     }
   }, [dispatch, pathId])
-
-  const getLanguageColor = (language) => {
-    switch (language) {
-      case 'JavaScript':
-        return '#f1e05a'
-      case 'HTML':
-        return '#e34c26'
-      case 'CSS':
-        return '#563d7c'
-      case 'SCSS':
-        return '#c6538c'
-      case 'TypeScript':
-        return '#2b7489'
-      case 'Python':
-        return '#3572a5'
-      case 'Java':
-        return '#b07219'
-      default:
-        return '#ccc'
-    }
-  }
 
   return (
     <div>
