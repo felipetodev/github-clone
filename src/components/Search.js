@@ -43,7 +43,7 @@ const StyledForm = styled.form`
     padding: 0 0.5rem;
 
     &:focus {
-      border-color: #32b256;
+      border-color: var(--text-secondary-color);
       outline: none;
       box-shadow: 0 0 10px rgba(20,20,20,.1);
     }
@@ -52,8 +52,8 @@ const StyledForm = styled.form`
   button {
     padding: 10px;
     font-weight: bold;
-    color: white;
-    background-color: #32b256;
+    color: var(--text-subtitle-color);
+    background-color: var(--text-secondary-color);
     border: none;
     outline: none;
     cursor: pointer;

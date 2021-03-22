@@ -20,7 +20,7 @@ const StyledFooter = styled.footer`
   margin-top: 2.5rem;
 
   svg {
-    color: #ccc;
+    color: var(--app-hover-color);
     font-size: 2rem;
     margin: 0;
   }

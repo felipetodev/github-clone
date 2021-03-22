@@ -1,6 +1,5 @@
 import { Link, useLocation } from 'react-router-dom'
 import { GoMarkGithub } from 'react-icons/go'
-
 import styled from 'styled-components'
 import Search from './Search'
 
@@ -14,29 +13,28 @@ export default function Nav () {
         <GoMarkGithub />
         <h1>GitHub</h1>
       </Link>
-      {pathKey === 'search'
-        ? <Search />
-        : ''}
+      {pathKey === 'search' &&
+        <Search />}
     </StyledNav>
   )
 }
 
 const StyledNav = styled.div`
   display: flex;
-  background-color: #24292e;
-  color: #fff;
+  background-color: var(--app-background-color);
+  color: var(--text-subtitle-color);
   padding: 1rem 0;
 
   &:hover > * {
     transition: all 300ms ease;
-    color: #ccc;
+    color: var(--app-hover-color);
   }
 
   a {
     display: flex;
     align-items: center;
     text-decoration: none;
-    color: white;
+    color: var(--text-subtitle-color);
     margin: 0rem 2rem;
   }
 

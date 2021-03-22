@@ -30,7 +30,7 @@ const StyledSpinner = styled.svg`
   height: 50px;
 
   & .path {
-    stroke: #32b256;
+    stroke: var(--text-secondary-color);
     stroke-linecap: round;
     animation: dash 1.5s ease-in-out infinite;
   }

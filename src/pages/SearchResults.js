@@ -126,7 +126,7 @@ export default function SearchResults () {
 const Container = styled.div`
   display: flex;
   justify-content: space-between;
-  border: 1px solid #ccc;
+  border: 1px solid var(--app-hover-color);
   padding: 1rem;
   margin-top: 3rem;
   border-radius: 10px;
@@ -147,13 +147,13 @@ const Container = styled.div`
   a {
     padding: 0.5rem 1rem;
     border-radius: 10px;
-    border: 1px solid #ccc;
-    background-color: #fafbfc;
+    border: 1px solid var(--app-hover-color);
+    background-color: var(--btn-background-color);
     color: inherit;
     cursor: pointer;
 
     &:hover {
-      background-color: #f3f4f6;
+      background-color: var(--btn-background-hover-color);
     }
   }
 `
@@ -180,7 +180,7 @@ const Avatar = styled.div`
     font-style: normal;
     font-weight: 300;
     line-height: 24px;
-    color: #586069;
+    color: var(--text-small-color);
   }
 
   a {
@@ -196,7 +196,7 @@ const UserDetails = styled.div`
     justify-content: flex-end;
     font-weight: 600;
     padding: 1rem;
-    color: #f9826c;
+    color: var(--text-detail-color);
 
     & > * {
       margin-right: 1.5rem;
@@ -226,17 +226,18 @@ const UserDetails = styled.div`
 const RepoContainer = styled.div`
   display: flex;
   flex-direction: column;
-  border: 1px solid #ccc;
+  border: 1px solid var(--app-hover-color);
   padding: 1rem;
   border-radius: 10px;
   margin: 1rem 0;
+  overflow: hidden;
 
   &:hover {
     box-shadow: 0 0 10px rgba(0,0,0,.1);
   }
 
   a {
-    color: #1b75da;
+    color: var(--text-link-color);
     font-weight: bold;
 
     &:hover {
@@ -247,18 +248,18 @@ const RepoContainer = styled.div`
   span {
     padding: 1rem;
     font-size: 0.8rem;
-    color: #586069;
+    color: var(--text-small-color);
   }
 `
 const RepoInfo = styled.div`
   display: flex;
-  align-items: baseline;
+  align-items: center;
 
   .star {
     display: flex;
     align-items: flex-end;
     margin: 0 0 0 15px;
-    color: #ccc;
+    color: var(--app-hover-color);
 
     span {
       padding: 0;

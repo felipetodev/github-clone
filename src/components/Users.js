@@ -53,7 +53,7 @@ const Card = styled.div`
   border-radius: 10px;
 
   &:hover {
-    background-color: #ebedf0;
+    background-color: var(--app-background-secondary-color);
   }
 
   & > * {
@@ -61,7 +61,9 @@ const Card = styled.div`
   }
 
   img {
-    width: 95%;
+    width: 90%;
+    object-fit: cover;
+    padding: 5px;
     margin-left: auto;
     margin-right: auto;
     border-radius: 50%;
@@ -76,12 +78,12 @@ const Card = styled.div`
     width: 95%;
     padding: 0.5rem 1rem;
     border-radius: 10px;
-    border: 1px solid #ccc;
-    background-color: #fafbfc;
+    border: 1px solid var(--app-hover-color);
+    background-color: var(--btn-background-color);
     cursor: pointer;
 
     &:hover {
-      background-color: #f3f4f6;
+      background-color: var(--btn-background-hover-color);
     }
   }
 `
