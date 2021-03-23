@@ -27,99 +27,97 @@ export default function SearchResults () {
   }, [dispatch, pathId])
 
   return (
-    <div>
+    <>
       <Nav />
       <Wrapper>
-        <div className='userContainer'>
-          <Container>
-            <Avatar>
-              <img src={user.userProfile.avatar_url} alt={user.login} />
-              <h1>{user.userProfile.name}</h1>
-              <h4>{user.userProfile.login}</h4>
-              <a href={user.userProfile.html_url} target='blank'>View Github Profile</a>
-            </Avatar>
-            <UserDetails>
-              <div className='followers'>
-                <span>Repositories: {user.userProfile.public_repos}</span>
-                <span>
-                  <GoOrganization /> Followers:{' '}
-                  {user.userProfile.followers}
-                </span>
-                <span>Following: {user.userProfile.following}</span>
+        <Container>
+          <Avatar>
+            <img src={user.userProfile.avatar_url} alt={user.login} />
+            <h1>{user.userProfile.name}</h1>
+            <h4>{user.userProfile.login}</h4>
+            <a href={user.userProfile.html_url} target='blank'>View Github Profile</a>
+          </Avatar>
+          <UserDetails>
+            <div className='followers'>
+              <span>Repositories: {user.userProfile.public_repos}</span>
+              <span>
+                <GoOrganization /> Followers:{' '}
+                {user.userProfile.followers}
+              </span>
+              <span>Following: {user.userProfile.following}</span>
+            </div>
+            <div className='user__details'>
+              <span>
+                <GoLocation />
+                {user.userProfile.location
+                  ? user.userProfile.location
+                  : 'Nowhere'}
+              </span>
+              <span>
+                <GoMail />
+                {user.userProfile.email ? user.userProfile.email : 'No email'}
+              </span>
+              {user.userProfile.blog
+                ? (
+                  <span>
+                    <GoLink />
+                    <a href={user.userProfile.blog} target='blank'>
+                      {user.userProfile.blog}
+                    </a>
+                  </span>)
+                : ''}
+              {user.userProfile.twitter_username
+                ? (
+                  <span>
+                    <AiOutlineTwitter />
+                    <a href={`https://twitter.com/${user.userProfile.twitter_username}`} target='blank'>
+                      @{user.userProfile.twitter_username}
+                    </a>
+                  </span>)
+                : ''}
+            </div>
+          </UserDetails>
+        </Container>
+
+        <h3>Latest Repos</h3>
+
+        {user.userRepos.map(repo => (
+          <RepoContainer key={repo.id}>
+            <div>
+              <GoRepo />
+              <a href={repo.clone_url} target='blank'>{repo.name}</a>
+            </div>
+            <span>{repo.description}</span>
+            <RepoInfo>
+              <span>
+                <GoPrimitiveDot style={{ color: getLanguageColor(repo.language) }} />
+                {repo.language}
+              </span>
+              <div className='star'>
+                <GoStar />
+                <span>{repo.stargazers_count}</span>
               </div>
-              <div className='user__details'>
-                <span>
-                  <GoLocation />
-                  {user.userProfile.location
-                    ? user.userProfile.location
-                    : 'Nowhere'}
-                </span>
-                <span>
-                  <GoMail />
-                  {user.userProfile.email ? user.userProfile.email : 'No email'}
-                </span>
-                {user.userProfile.blog
+              <span>
+                {repo.license
                   ? (
                     <span>
-                      <GoLink />
-                      <a href={user.userProfile.blog} target='blank'>
-                        {user.userProfile.blog}
-                      </a>
-                    </span>)
+                      <GoLaw />
+                      {repo.license.name}
+                    </span>
+                    )
                   : ''}
-                {user.userProfile.twitter_username
-                  ? (
-                    <span>
-                      <AiOutlineTwitter />
-                      <a href={`https://twitter.com/${user.userProfile.twitter_username}`} target='blank'>
-                        @{user.userProfile.twitter_username}
-                      </a>
-                    </span>)
-                  : ''}
-              </div>
-            </UserDetails>
-          </Container>
-
-          <h3>Latest Repos</h3>
-
-          {user.userRepos.map(repo => (
-            <RepoContainer key={repo.id}>
-              <div>
-                <GoRepo />
-                <a href={repo.clone_url} target='blank'>{repo.name}</a>
-              </div>
-              <span>{repo.description}</span>
-              <RepoInfo>
-                <span>
-                  <GoPrimitiveDot style={{ color: getLanguageColor(repo.language) }} />
-                  {repo.language}
-                </span>
-                <div className='star'>
-                  <GoStar />
-                  <span>{repo.stargazers_count}</span>
-                </div>
-                <span>
-                  {repo.license
-                    ? (
-                      <span>
-                        <GoLaw />
-                        {repo.license.name}
-                      </span>
-                      )
-                    : ''}
-                </span>
-                <span>
-                  Updated {' '}
-                  <TimeAgo timestamp={new Date(repo.updated_at).getTime()} />
-                </span>
-              </RepoInfo>
-            </RepoContainer>
-          ))}
-        </div>
+              </span>
+              <span>
+                Updated {' '}
+                <TimeAgo timestamp={new Date(repo.updated_at).getTime()} />
+              </span>
+            </RepoInfo>
+          </RepoContainer>
+        ))}
 
         <Footer />
       </Wrapper>
-    </div>
+    </>
   )
 }
 

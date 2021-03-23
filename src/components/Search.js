@@ -1,13 +1,9 @@
 import { useState } from 'react'
-import { useDispatch } from 'react-redux'
 import styled from 'styled-components'
-import { loadSearchUser } from 'actions/SearchUserAction'
 import { useHistory } from 'react-router-dom'
 
 export default function Search () {
   const [textInput, setTextInput] = useState('')
-
-  const dispatch = useDispatch()
   const history = useHistory()
 
   const onChangeHandler = (e) => {
@@ -17,7 +13,6 @@ export default function Search () {
   const onSubmitForm = (e) => {
     e.preventDefault()
     if (textInput !== '') {
-      dispatch(loadSearchUser(textInput))
       const textInputEncoded = encodeURI(textInput)
       history.push(`/feed/${textInputEncoded}`)
     }

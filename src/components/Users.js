@@ -7,14 +7,16 @@ import Spinner from 'components/Spinner'
 export default function Users () {
   const { user, loading, error } = useSelector((state) => state.user)
 
+  if (error) return <p>{error}</p>
+
   return (
     <>
       {loading
         ? <Spinner />
         : (
           <Cards>
-            {user.items
-              ? user.items.map(user => (
+            {user
+              ? user.map(user => (
                 <Card key={user.id}>
                   <img src={user.avatar_url} alt={user.login} />
                   <span>{user.login}</span>

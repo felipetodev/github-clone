@@ -23,9 +23,11 @@ const searchReducer = (state = initialState, action) => {
     case 'FETCH_USER':
       return {
         ...state,
-        user: action.payload.user,
+        user: action.payload.user.items,
         loading: false,
-        error: ''
+        error: action.payload.user.items.length === 0
+          ? 'We couldn’t find any repositories...'
+          : ''
       }
     case 'FETCH_USER_REPOS':
       return {
