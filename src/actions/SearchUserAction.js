@@ -24,41 +24,20 @@ export const loadSearchUser = (userName) => async (dispatch) => {
   }
 }
 
-export const loadUserRepos = (userName) => async (dispatch) => {
-  dispatch({
-    type: 'LOADING_USER'
-  })
-
-  try {
-    const { data } = await axios.get(getUserRepos(userName))
-
-    dispatch({
-      type: 'FETCH_USER_REPOS',
-      payload: {
-        userRepos: data
-      }
-    })
-  } catch (error) {
-    console.error(error)
-
-    dispatch({
-      type: 'FETCH_ERROR'
-    })
-  }
-}
-
 export const loadUserProfile = (userName) => async (dispatch) => {
   dispatch({
     type: 'LOADING_USER'
   })
 
   try {
-    const { data } = await axios.get(getUserProfile(userName))
+    const { data: profileData } = await axios.get(getUserProfile(userName))
+    const { data: repoData } = await axios.get(getUserRepos(userName))
 
     dispatch({
       type: 'FETCH_USER_PROFILE',
       payload: {
-        userProfile: data
+        userProfile: profileData,
+        userRepos: repoData
       }
     })
   } catch (error) {

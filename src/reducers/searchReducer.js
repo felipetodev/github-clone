@@ -29,17 +29,11 @@ const searchReducer = (state = initialState, action) => {
           ? 'We couldn’t find any repositories...'
           : ''
       }
-    case 'FETCH_USER_REPOS':
-      return {
-        ...state,
-        userRepos: action.payload.userRepos,
-        loading: false,
-        error: ''
-      }
     case 'FETCH_USER_PROFILE':
       return {
         ...state,
         userProfile: action.payload.userProfile,
+        userRepos: action.payload.userRepos,
         loading: false,
         error: ''
       }
