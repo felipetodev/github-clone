@@ -130,13 +130,6 @@ const Container = styled.div`
   border-radius: 10px;
   margin-bottom: 1rem;
 
-  @media (max-width: 800px) {
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    font-size: 90%;
-  }
-
   img {
     width: 250px;
     border-radius: 50%;
@@ -154,6 +147,18 @@ const Container = styled.div`
       background-color: var(--btn-background-hover-color);
     }
   }
+
+  @media (max-width: 800px) {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 90%;
+
+    img {
+      width: 90%;
+      margin: 0 auto;
+    }
+  }
 `
 
 const Avatar = styled.div`
@@ -164,6 +169,7 @@ const Avatar = styled.div`
   margin-left: 1rem;
 
   @media (max-width: 800px) {
+    padding: 0 1rem;
     margin: 0;
   }
 
@@ -215,9 +221,13 @@ const UserDetails = styled.div`
     font-weight: 600;
     padding: 1rem;
 
-    & > * {
+    & > *:not(:last-child) {
       margin-bottom: 2rem;
     }
+  }
+
+  @media (max-width: 500px) {
+    width: 100%;
   }
 `
 
