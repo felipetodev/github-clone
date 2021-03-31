@@ -1,13 +1,15 @@
 import axios from 'axios'
 import { getUser, getUserRepos, getUserProfile } from '../services/api'
 
+const getDataApi = (url, key) => axios.get(url(key))
+
 export const loadSearchUser = (userName) => async (dispatch) => {
   dispatch({
     type: 'LOADING_USERS'
   })
 
   try {
-    const { data } = await axios.get(getUser(userName))
+    const { data } = await getDataApi(getUser, userName)
 
     dispatch({
       type: 'FETCH_USER',
@@ -30,8 +32,8 @@ export const loadUserProfile = (userName) => async (dispatch) => {
   })
 
   try {
-    const { data: profileData } = await axios.get(getUserProfile(userName))
-    const { data: repoData } = await axios.get(getUserRepos(userName))
+    const { data: profileData } = await getDataApi(getUserProfile, userName)
+    const { data: repoData } = await getDataApi(getUserRepos, userName)
 
     dispatch({
       type: 'FETCH_USER_PROFILE',
